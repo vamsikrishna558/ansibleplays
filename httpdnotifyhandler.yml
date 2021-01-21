@@ -1,0 +1,19 @@
+---
+- name: Installation of httpd using notify and handler
+  hosts: all
+  become: true
+# gather_facts: no
+  
+  tasks:
+  - name: Install the httpd process
+    yum:
+     name: httpd
+     state: installed
+    notify: start httpd process
+
+  handlers: 
+  - name: start httpd process
+    service:
+      name: httpd
+      state: started 
+

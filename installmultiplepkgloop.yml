@@ -1,0 +1,16 @@
+---
+- name: Installation of multiple packages using loops
+  hosts: all
+  become: true
+  gather_facts: yes
+  tasks:
+  - name: Installation and removing of multiple packages
+    yum:
+     name: "{{ item.pkg }}"
+     state: "{{ item.setup }}"
+    loop:
+     - { pkg: 'make', setup: 'installed' }
+     - { pkg: 'tree', setup: 'installed' }
+     - { pkg: 'wget', setup: 'removed' }  
+
+

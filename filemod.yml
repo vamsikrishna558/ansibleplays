@@ -1,0 +1,17 @@
+---
+- name: creating a file and directory
+  hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+  - name: creating a file
+    file: 
+     path: /opt/file1
+     state: touch
+  - name: Creating a directory
+    file:
+     path: /opt/dir1
+     state: directory
+
+
+

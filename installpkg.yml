@@ -1,0 +1,9 @@
+---
+- name: Installing package
+  hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+  - name: Installing git package
+    yum: 
+     name: git 

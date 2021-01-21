@@ -1,0 +1,11 @@
+---
+- name: installation of multiple packages
+  hosts: all
+  become: true
+  gather_facts: yes
+  
+  tasks:
+  - name: installation of wget,curl
+    yum:
+     name: [ 'tree', 'make' ]
+     state: removed
